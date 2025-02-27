@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерпретативно съчинение</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+        }
+        .content {
+            width: 60%;
+        }
+        .image-container {
+            width: 15%;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+        .section {
+            margin-bottom: 20px;
+            position: relative;
+            padding: 15px;
+            border: 2px solid #000;
+            border-radius: 15px;
+            display: inline-block;
+            width: 50%;
+            background-color: #ffffff;
+        }
+        .arrow {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        #info-box {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #000;
+            border-radius: 15px;
+            width: 30%;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: 50px;
+            background-color: #fffcfc;
+        }
+    </style>
+    <script>
+        function updateInfoBox(selectId) {
+            let info = {
+                "author": "I. Увод\n\nПредставяне на автора: \n\nКратка информация за живота и творчеството на писателя/поета. \n\nКъде твори \n\nВ коя епоха твори",
+                "work": "I. Увод\n\nВъвеждане на произведението: \n\nКак се вписва в цялостното творчество.",
+                "theme": "I. Увод\n\nФормулиране на темата на съчинението: \n\nПредставяне на темата за анализ. \n\nПреход към тезата",
+                "single": "II. Теза\n\nЕдинна теза 1-2 изречения: \n\nЕдно основно твърдение, което се подкрепя с микротеми.",
+                "antithesis": "II. Теза\n\nС антитеза: \n\nСравнение на две противоположни гледни точки.",
+                "title": "III. Аргументативна част 3-5 абзаца\n\nЗаглавие и жанр: \n\nКак заглавието насочва към основните проблеми на творбата?",
+                "composition": "III. Аргументативна част 3-5 абзаца\n\nКомпозиция: \n\nКак е изградена творбата и има ли особености?",
+                "plot": "III. Аргументативна част 3-5 абзаца\n\nСюжет и проблематика: \n\nОсновни моменти в сюжета и конфликтите.",
+                "artistic": "III. Аргументативна част 3-5 абзаца\n\nХудожествени средства: \n\nАнализ на ключови похвати и символика.",
+                "summary": "IV. Заключение 3-5 изречения\n\nОбобщение на основните изводи: \n\nПотвърждаване на тезата.",
+                "relevance": "IV. Заключение 3-5 изречения\n\nЛична позиция: \n\nКак произведението е актуално днес?"
+            };
+            
+            let selectedValue = document.getElementById(selectId).value;
+            document.getElementById('info-box').innerText = selectedValue ? info[selectedValue] : "";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://i.pinimg.com/474x/3f/7a/8e/3f7a8e0d5838660490c6fd52c5befcf8.jpg" alt="Left Image">
+        </div>
+        <div class="content">
+            <h1>Как се пише интерпретативно съчинение</h1>
+            
+            <div class="section">
+                <label for="intro">I. Увод:</label>
+                <br>
+                <select id="intro" onchange="updateInfoBox('intro')">
+                    <option value="" selected disabled>Изберете...</option>
+                    <option value="author">Представяне на автора</option>
+                    <option value="work">Въвеждане на произведението</option>
+                    <option value="theme">Формулиране на темата на съчинението</option>
+                </select>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="section">
+                <label for="thesis">II. Теза:</label>
+                <br>
+                <select id="thesis" onchange="updateInfoBox('thesis')">
+                    <option value="" selected disabled>Изберете...</option>
+                    <option value="single">Единна (едно основно твърдение, което се подкрепя с микротеми)</option>
+                    <option value="antithesis">С антитеза (сравнение на две противоположни гледни точки)</option>
+                </select>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="section">
+                <label for="argument">III. Аргументативна част:</label>
+                <br>
+                <select id="argument" onchange="updateInfoBox('argument')">
+                    <option value="" selected disabled>Изберете...</option>
+                    <option value="title">Заглавие и жанр</option>
+                    <option value="composition">Композиция</option>
+                    <option value="plot">Сюжет и проблематика</option>
+                    <option value="artistic">Художествени средства</option>
+                </select>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="section">
+                <label for="conclusion">IV. Заключение:</label>
+                <br>
+                <select id="conclusion" onchange="updateInfoBox('conclusion')">
+                    <option value="" selected disabled>Изберете...</option>
+                    <option value="summary">Обобщение на основните изводи</option>
+                    <option value="relevance">Лична позиция (по желание)</option>
+                </select>
+            </div>
+            
+            <div id="info-box"></div>
+        </div>
+        <div class="image-container">
+            <img src="https://i.pinimg.com/474x/3f/7a/8e/3f7a8e0d5838660490c6fd52c5befcf8.jpg" alt="Right Image">
+        </div>
+    </div>
+</body>
+</html>
